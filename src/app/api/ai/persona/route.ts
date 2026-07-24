@@ -12,7 +12,7 @@ function getDefaultPersona() {
     caseStudies: 'Partnered with Sapphire for 200+ daily deliveries with 99.2% on-time rate. Scaled Cozmetica beauty deliveries to 80+ orders daily.',
     objections: 'For "Too expensive": We offer competitive rates starting from PKR 99 with bulk discounts. For "Already have a courier": Free trial period to compare our service quality and speed.',
     customKnowledge: 'QWQER Pakistan serves ecommerce, retail, pharma, grocery, and gift businesses in Lahore. Key features: instant delivery, live tracking, bulk uploads, dedicated rider coordination.',
-    selectedModel: 'gpt-4o',
+    selectedModel: 'delivery-ai',
   };
 }
 
@@ -37,7 +37,7 @@ export async function POST(req: Request) {
       caseStudies: body.caseStudies || 'Partnered with Sapphire for 200+ daily deliveries.',
       objections: body.objections || 'Offer free trial period to compare service quality.',
       customKnowledge: body.customKnowledge || 'QWQER Pakistan serves ecommerce, retail, pharma, grocery businesses in Lahore.',
-      selectedModel: body.selectedModel || 'gpt-4o',
+      selectedModel: body.selectedModel || 'delivery-ai',
       updatedAt: new Date().toISOString(),
     };
 

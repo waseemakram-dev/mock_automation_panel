@@ -78,7 +78,7 @@ export default function Sidebar() {
         {/* Footer */}
         <div className="text-center space-y-0.5 pt-2 border-t border-[#E6E6E6] select-text">
           <p className="text-[10px] font-semibold text-[#666666] tracking-wide">
-            Powered by <span className="text-[#00A651] font-extrabold">QWQER Pakistan</span>
+            Powered by <span className="text-[#00A651] font-extrabold">TechFinanza</span>
           </p>
           <p className="text-[9px] font-extrabold text-[#16A34A] uppercase tracking-wider">
             Fast & Reliable Delivery

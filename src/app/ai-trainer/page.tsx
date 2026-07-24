@@ -15,7 +15,7 @@ import {
 } from 'lucide-react';
 
 export default function AiTrainerPage() {
-  const [model] = useState('gpt-4o');
+  const [model] = useState('delivery-ai');
   const [name, setName] = useState('QWQER Pakistan');
   const [role, setRole] = useState('Delivery & Logistics Solutions Specialist');
   const [experience, setExperience] = useState('3+ years helping businesses in Lahore with instant, same-day, and bulk delivery services');
@@ -78,7 +78,7 @@ export default function AiTrainerPage() {
     }
   }
 
-  async function handleTestGpt4o() {
+  async function handleTestAI() {
     setTesting(true);
     try {
       const res = await fetch('/api/ai/generate', {
@@ -124,10 +124,10 @@ export default function AiTrainerPage() {
               </div>
               <div>
                 <h4 className="font-bold text-[#1A1A1A] text-xs">AI Model Active</h4>
-                <p className="text-[11px] text-[#666666]">GPT-4o for delivery assistant intelligence</p>
+                <p className="text-[11px] text-[#666666]">AI engine for delivery assistant intelligence</p>
               </div>
             </div>
-            <span className="px-3 py-1 rounded-full bg-[#00A651]/10 text-[#00A651] text-xs font-bold border border-[#00A651]/30">GPT-4o Active</span>
+            <span className="px-3 py-1 rounded-full bg-[#00A651]/10 text-[#00A651] text-xs font-bold border border-[#00A651]/30">AI Active</span>
           </div>
 
           <div className="bg-white border border-[#E6E6E6] rounded-xl p-6 space-y-4 text-xs shadow-sm">
@@ -220,7 +220,7 @@ export default function AiTrainerPage() {
                   <option value="GIFTS">Gifts</option>
                 </select>
               </div>
-              <button type="button" onClick={handleTestGpt4o} disabled={testing} className="w-full py-2.5 rounded-lg bg-[#EEF6F0] hover:bg-[#E1F5EE] text-[#1A1A1A] font-bold border border-[#E6E6E6] flex items-center justify-center gap-2 transition">
+              <button type="button" onClick={handleTestAI} disabled={testing} className="w-full py-2.5 rounded-lg bg-[#EEF6F0] hover:bg-[#E1F5EE] text-[#1A1A1A] font-bold border border-[#E6E6E6] flex items-center justify-center gap-2 transition">
                 {testing ? <Loader2 className="w-4 h-4 animate-spin" /> : <Bot className="w-4 h-4 text-[#00A651]" />}
                 <span>Test AI Output</span>
               </button>

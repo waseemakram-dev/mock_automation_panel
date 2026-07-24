@@ -7,8 +7,6 @@ import {
   RefreshCw, 
   Download, 
   Zap, 
-  Copy, 
-  Check, 
   Power, 
   Radio, 
   MessageSquare,
@@ -21,18 +19,9 @@ export default function SettingsPage() {
   const [waLive, setWaLive] = useState(true);
   const [liveSyncActive, setLiveSyncActive] = useState(true);
   const [autoReplyEnabled, setAutoReplyEnabled] = useState(false);
-  const [copiedWebhook, setCopiedWebhook] = useState(false);
   const [batchScoring, setBatchScoring] = useState(false);
   const [batchMessage, setBatchMessage] = useState<string | null>(null);
   const [extraRules, setExtraRules] = useState('Always highlight QWQERs fast delivery, live tracking, and bulk order support. Focus on same-day and instant delivery benefits.');
-
-  const webhookUrl = `https://qwqer.pk/api/webhook`;
-
-  function copyWebhookToClipboard() {
-    navigator.clipboard.writeText(webhookUrl);
-    setCopiedWebhook(true);
-    setTimeout(() => setCopiedWebhook(false), 2000);
-  }
 
   async function handleImportExistingChats() {
     alert('Demo mode - 5 partner conversations loaded');
@@ -120,25 +109,6 @@ export default function SettingsPage() {
             <Power className="w-3.5 h-3.5" />
             <span>{waLive ? 'Disconnect' : 'Connect'}</span>
           </button>
-        </div>
-
-        {/* Webhook Card */}
-        <div className="p-4 rounded-xl bg-[#F5F7F3] border border-[#E6E6E6] space-y-2 text-xs">
-          <div className="flex items-center justify-between text-[#4B5163] font-bold">
-            <span className="flex items-center gap-1.5">
-              <Zap className="w-3.5 h-3.5 text-[#00A651]" />
-              <span>Webhook URL</span>
-            </span>
-            <span className="text-[10px] text-[#00A651] font-mono">Active</span>
-          </div>
-
-          <div className="flex items-center gap-2">
-            <input type="text" readOnly value={webhookUrl} className="flex-1 bg-white border border-[#E6E6E6] rounded-lg p-2.5 font-mono text-[#4B5163] text-[11px]" />
-            <button onClick={copyWebhookToClipboard} className="px-3 py-2.5 rounded-lg bg-[#EEF6F0] hover:bg-[#E1F5EE] text-[#1A1A1A] border border-[#E6E6E6] font-semibold flex items-center gap-1.5 transition">
-              {copiedWebhook ? <Check className="w-3.5 h-3.5 text-[#00A651]" /> : <Copy className="w-3.5 h-3.5 text-[#00A651]" />}
-              <span>{copiedWebhook ? 'Copied' : 'Copy'}</span>
-            </button>
-          </div>
         </div>
       </div>
 

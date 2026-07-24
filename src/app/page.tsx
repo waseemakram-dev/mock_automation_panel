@@ -15,7 +15,10 @@ import {
   Database,
   BarChart3,
   Zap,
-  Clock
+  Clock,
+  BrainCircuit,
+  TrendingUp,
+  Star
 } from 'lucide-react';
 import { 
   BarChart, 
@@ -240,26 +243,41 @@ export default function Dashboard() {
           )}
         </div>
 
-        {/* Recent Orders */}
+        {/* Lead Intelligence Panel */}
         <div className="bg-white border border-[#E6E6E6] rounded-2xl p-6 space-y-4 shadow-sm">
-          <div className="flex items-center justify-between">
-            <h2 className="text-sm font-bold text-[#1A1A1A]">Recent Orders</h2>
-            <Link href="/leads" className="text-xs text-[#00A651] hover:underline font-bold">View Hub</Link>
+          <div className="flex items-center gap-2">
+            <BrainCircuit className="w-4 h-4 text-[#00A651]" />
+            <h2 className="text-sm font-bold text-[#1A1A1A]">Lead Intelligence</h2>
           </div>
 
-          <div className="space-y-2.5">
+          <div className="space-y-3">
             {leads.slice(0, 5).map((lead) => (
-              <div key={lead.id} className="p-3 rounded-xl bg-[#F5F7F3] border border-[#E6E6E6] flex items-center justify-between text-xs">
-                <div>
-                  <h4 className="font-bold text-[#1A1A1A]">{lead.companyName}</h4>
-                  <p className="text-[11px] text-[#4B5163] font-medium">{lead.name}</p>
+              <div key={lead.id} className="p-3 rounded-xl bg-[#F5F7F3] border border-[#E6E6E6] space-y-2">
+                <div className="flex items-center justify-between">
+                  <h4 className="font-bold text-[#1A1A1A] text-xs">{lead.companyName}</h4>
+                  <span className={`px-2 py-0.5 rounded text-[9px] font-bold ${
+                    lead.status === 'DELIVERED' ? 'bg-[#00A651]/10 text-[#00A651]' :
+                    lead.status === 'IN_TRANSIT' ? 'bg-[#CC3366]/10 text-[#CC3366]' :
+                    'bg-[#4B5163]/10 text-[#4B5163]'
+                  }`}>
+                    {lead.status}
+                  </span>
                 </div>
-                <span className="px-2.5 py-1 rounded bg-[#00A651]/10 text-[#00A651] font-extrabold text-xs border border-[#00A651]/20">
-                  {lead.status}
-                </span>
+                {lead.qualificationSummary && (
+                  <p className="text-[10px] text-[#4B5163] leading-relaxed">{lead.qualificationSummary}</p>
+                )}
+                <div className="flex items-center gap-2 text-[10px] text-[#666666]">
+                  <span className="font-mono">{lead.niche?.replace('_', ' ')}</span>
+                </div>
               </div>
             ))}
           </div>
+
+          {leads.length > 5 && (
+            <Link href="/leads" className="block text-center text-xs text-[#00A651] hover:underline font-bold pt-2 border-t border-[#E6E6E6]">
+              View All {leads.length} Partners →
+            </Link>
+          )}
         </div>
       </div>
     </div>
