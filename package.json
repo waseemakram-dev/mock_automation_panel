@@ -1,0 +1,38 @@
+{
+  "name": "outreach-automation-app",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 8001",
+    "build": "next build",
+    "start": "next start -p 8001",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "next": "^15.1.7",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "firebase": "^11.2.0",
+    "firebase-admin": "^13.0.1",
+    "openai": "^4.83.0",
+    "apify-client": "^2.11.2",
+    "resend": "^4.1.2",
+    "lucide-react": "^0.474.0",
+    "recharts": "^2.15.1",
+    "clsx": "^2.1.1",
+    "tailwind-merge": "^3.0.1",
+    "papaparse": "^5.5.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.10",
+    "@types/react": "^19.0.7",
+    "@types/react-dom": "^19.0.3",
+    "@types/papaparse": "^5.3.15",
+    "typescript": "^5.7.3",
+    "tailwindcss": "^3.4.17",
+    "postcss": "^8.5.1",
+    "autoprefixer": "^10.4.20",
+    "eslint": "^9.18.0",
+    "eslint-config-next": "^15.1.7"
+  }
+}
