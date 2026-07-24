@@ -96,7 +96,7 @@ export default function AiTrainerPage() {
   }
 
   return (
-    <div className="max-w-6xl mx-auto space-y-8 p-8">
+    <div className="max-w-6xl mx-auto space-y-6 sm:space-y-8 p-4 sm:p-6 lg:p-8">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
           <div className="flex items-center gap-2 text-[#00A651] font-bold text-xs uppercase tracking-wider mb-1">

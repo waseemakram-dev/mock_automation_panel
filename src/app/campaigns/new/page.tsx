@@ -58,7 +58,7 @@ export default function CampaignWizard() {
   }
 
   return (
-    <div className="max-w-4xl mx-auto space-y-8">
+    <div className="max-w-4xl mx-auto space-y-6 sm:space-y-8 p-4 sm:p-6 lg:p-8">
       <div className="p-6 bg-white border border-[#E6E6E6] rounded-xl flex items-center justify-between shadow-sm">
         <div>
           <h1 className="text-xl font-bold text-[#1A1A1A]">Campaign Builder</h1>

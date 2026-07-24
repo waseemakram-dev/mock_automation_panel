@@ -88,11 +88,11 @@ export default function Dashboard() {
   ];
 
   return (
-    <div className="space-y-6 max-w-7xl mx-auto p-8">
+    <div className="space-y-4 sm:space-y-6 max-w-7xl mx-auto p-4 sm:p-6 lg:p-8">
       {/* Header Banner */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-white border border-[#E6E6E6] rounded-2xl p-6 shadow-sm">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white border border-[#E6E6E6] rounded-2xl p-4 sm:p-6 shadow-sm">
         <div>
-          <h1 className="text-2xl font-bold text-[#1A1A1A] tracking-tight font-sans">
+          <h1 className="text-xl sm:text-2xl font-bold text-[#1A1A1A] tracking-tight font-sans">
             QWQER Delivery Dashboard
           </h1>
           <p className="text-xs text-[#4B5163] font-medium mt-1">
@@ -101,27 +101,28 @@ export default function Dashboard() {
         </div>
 
         {/* Action Controls */}
-        <div className="flex flex-wrap items-center gap-3">
+        <div className="flex flex-wrap items-center gap-2 sm:gap-3">
           <Link
             href="/leads"
-            className="px-4 py-2.5 rounded-xl bg-[#F5F7F3] hover:bg-[#EEF6F0] text-[#1A1A1A] border border-[#E6E6E6] text-xs font-bold transition flex items-center gap-2 shadow-sm"
+            className="px-3 sm:px-4 py-2 sm:py-2.5 rounded-xl bg-[#F5F7F3] hover:bg-[#EEF6F0] text-[#1A1A1A] border border-[#E6E6E6] text-xs font-bold transition flex items-center gap-2 shadow-sm"
           >
             <Search className="w-4 h-4 text-[#00A651]" />
-            <span>Add Business Partner</span>
+            <span className="hidden xs:inline">Add Business Partner</span>
+            <span className="xs:hidden">Add Partner</span>
           </Link>
           
           <button
             onClick={() => alert('Bulk orders initiated!')}
-            className="px-5 py-2.5 rounded-xl bg-[#00A651] hover:bg-[#16A34A] text-white text-xs font-extrabold shadow-lg shadow-[#00A651]/20 transition flex items-center gap-2"
+            className="px-3 sm:px-5 py-2 sm:py-2.5 rounded-xl bg-[#00A651] hover:bg-[#16A34A] text-white text-xs font-extrabold shadow-lg shadow-[#00A651]/20 transition flex items-center gap-2"
           >
             <Zap className="w-4 h-4 fill-white stroke-white" />
-            <span>Start Bulk Delivery</span>
+            <span>Bulk Delivery</span>
           </button>
         </div>
       </div>
 
       {/* Metrics Row */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
         <MetricCard title="Total Orders" value={totalOrders} change="All Partners" icon={Package} color="#00A651" />
         <MetricCard title="Dispatched" value={dispatchedOrders} change="In Progress" icon={Truck} color="#4B5163" />
         <MetricCard title="Delivered" value={deliveredOrders} change={`${deliveryRate}% Success Rate`} icon={CheckCircle} color="#16A34A" highlight />
@@ -129,7 +130,7 @@ export default function Dashboard() {
       </div>
 
       {/* Analytics Section */}
-      <div className="bg-white border border-[#E6E6E6] rounded-2xl p-6 space-y-4 shadow-sm">
+      <div className="bg-white border border-[#E6E6E6] rounded-2xl p-4 sm:p-6 space-y-4 shadow-sm">
         <div className="flex items-center justify-between">
           <h2 className="text-sm font-bold text-[#1A1A1A] flex items-center gap-2">
             <BarChart3 className="w-4 h-4 text-[#00A651]" />
@@ -188,9 +189,9 @@ export default function Dashboard() {
       </div>
 
       {/* Main Grid Section */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6">
         {/* Active Campaigns */}
-        <div className="lg:col-span-2 bg-white border border-[#E6E6E6] rounded-2xl p-6 space-y-4 shadow-sm">
+        <div className="lg:col-span-2 bg-white border border-[#E6E6E6] rounded-2xl p-4 sm:p-6 space-y-4 shadow-sm">
           <div className="flex items-center justify-between">
             <h2 className="text-sm font-bold text-[#1A1A1A]">Active Delivery Campaigns</h2>
             <Link href="/campaigns" className="text-xs text-[#00A651] hover:underline flex items-center gap-1 font-bold">
@@ -244,7 +245,7 @@ export default function Dashboard() {
         </div>
 
         {/* Lead Intelligence Panel */}
-        <div className="bg-white border border-[#E6E6E6] rounded-2xl p-6 space-y-4 shadow-sm">
+        <div className="bg-white border border-[#E6E6E6] rounded-2xl p-4 sm:p-6 space-y-4 shadow-sm">
           <div className="flex items-center gap-2">
             <BrainCircuit className="w-4 h-4 text-[#00A651]" />
             <h2 className="text-sm font-bold text-[#1A1A1A]">Lead Intelligence</h2>
@@ -286,21 +287,21 @@ export default function Dashboard() {
 
 function MetricCard({ title, value, change, icon: Icon, color, highlight }: any) {
   return (
-    <div className={`p-5 rounded-2xl border transition-all ${
+    <div className={`p-3 sm:p-5 rounded-xl sm:rounded-2xl border transition-all ${
       highlight 
         ? 'bg-white border-[#00A651]/40 shadow-md shadow-[#00A651]/5' 
         : 'bg-white border-[#E6E6E6]'
     }`}>
       <div className="flex items-center justify-between">
-        <span className="text-xs font-bold text-[#4B5163]">{title}</span>
-        <div className="p-2 rounded-xl bg-[#F5F7F3] border border-[#E6E6E6]" style={{ color: color }}>
-          <Icon className="w-4 h-4" />
+        <span className="text-[10px] sm:text-xs font-bold text-[#4B5163]">{title}</span>
+        <div className="p-1.5 sm:p-2 rounded-lg sm:rounded-xl bg-[#F5F7F3] border border-[#E6E6E6]" style={{ color: color }}>
+          <Icon className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
         </div>
       </div>
-      <div className="mt-3 flex items-baseline justify-between">
-        <span className="text-3xl font-extrabold text-[#1A1A1A] tracking-tight">{value}</span>
+      <div className="mt-2 sm:mt-3 flex items-baseline justify-between">
+        <span className="text-2xl sm:text-3xl font-extrabold text-[#1A1A1A] tracking-tight">{value}</span>
       </div>
-      <p className="text-xs font-bold mt-1.5" style={{ color: color }}>{change}</p>
+      <p className="text-[10px] sm:text-xs font-bold mt-1 sm:mt-1.5" style={{ color: color }}>{change}</p>
     </div>
   );
 }

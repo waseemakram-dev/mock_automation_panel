@@ -41,7 +41,7 @@ export default function SettingsPage() {
   }
 
   return (
-    <div className="max-w-5xl mx-auto space-y-8 p-8">
+    <div className="max-w-5xl mx-auto space-y-6 sm:space-y-8 p-4 sm:p-6 lg:p-8">
       {/* Header */}
       <div className="flex items-center gap-3">
         <div className="p-2.5 rounded-xl bg-[#00A651]/10 text-[#00A651] border border-[#00A651]/20">
